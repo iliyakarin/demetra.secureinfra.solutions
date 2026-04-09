@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ProblemSection from '../components/ProblemSection.astro';
+import SolutionSection from '../components/SolutionSection.astro';
+import PlatformSection from '../components/PlatformSection.astro';
+import HardwareSection from '../components/HardwareSection.astro';
+import RoiSection from '../components/RoiSection.astro';
+import SecuritySection from '../components/SecuritySection.astro';
+import TeamSection from '../components/TeamSection.astro';
+import CtaSection from '../components/CtaSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Demetra IoT — Operational AI for Profitable, Sustainable Farming"
+  description="Demetra IoT delivers AI that acts on your farm. Cut energy costs 30%, reduce water use 40%, and grow yields 25% with our edge-first, open-source precision agriculture platform."
+>
+  <NavBar />
+  <main>
+    <HeroSection />
+    <ProblemSection />
+    <SolutionSection />
+    <PlatformSection />
+    <HardwareSection />
+    <RoiSection />
+    <SecuritySection />
+    <TeamSection />
+    <CtaSection />
+  </main>
+  <Footer />
+</Layout>

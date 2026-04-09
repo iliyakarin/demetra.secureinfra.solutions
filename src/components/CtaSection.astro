@@ -1,0 +1,137 @@
+---
+// CtaSection.astro — Final conversion section with demo form
+---
+
+<section id="cta" class="section-pad" style="background:linear-gradient(135deg,var(--color-slate) 0%,rgba(10,15,30,1) 100%);position:relative;overflow:hidden;">
+  <!-- Glow -->
+  <div style="position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(20,184,166,0.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;"></div>
+
+  <div class="max-w-content container-pad mx-auto" style="position:relative;">
+    <div style="max-width:720px;margin-inline:auto;text-align:center;margin-bottom:4rem;">
+      <div class="section-label" style="justify-content:center;">
+        <span class="badge">Get Started</span>
+      </div>
+      <h2 style="font-size:clamp(2.25rem,5vw,3.5rem);font-weight:900;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1.25rem;">
+        Ready to Transform<br />
+        <span class="gradient-text">Your Operation?</span>
+      </h2>
+      <p style="font-size:1.0625rem;color:var(--color-muted);line-height:1.75;">
+        Talk to one of our AgTech solutions engineers. We'll walk you through a live demo using data from an operation similar to yours — no sales pitch, just results.
+      </p>
+    </div>
+
+    <!-- Form card -->
+    <div class="glass" style="max-width:680px;margin-inline:auto;padding:3rem;">
+      <form id="demo-form" action="#" method="POST" novalidate>
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label for="first-name" style="font-size:0.8125rem;font-weight:600;color:var(--color-muted);display:block;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.06em;">First Name</label>
+            <input
+              id="first-name"
+              name="first_name"
+              type="text"
+              autocomplete="given-name"
+              placeholder="Jane"
+              required
+              class="form-input"
+            />
+          </div>
+          <div>
+            <label for="last-name" style="font-size:0.8125rem;font-weight:600;color:var(--color-muted);display:block;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.06em;">Last Name</label>
+            <input
+              id="last-name"
+              name="last_name"
+              type="text"
+              autocomplete="family-name"
+              placeholder="Smith"
+              required
+              class="form-input"
+            />
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label for="email" style="font-size:0.8125rem;font-weight:600;color:var(--color-muted);display:block;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.06em;">Work Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="jane@yourfarm.com"
+              required
+              class="form-input"
+            />
+          </div>
+          <div>
+            <label for="company" style="font-size:0.8125rem;font-weight:600;color:var(--color-muted);display:block;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.06em;">Company / Farm Name</label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              autocomplete="organization"
+              placeholder="AcroFarms Inc."
+              class="form-input"
+            />
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="operation-type" style="font-size:0.8125rem;font-weight:600;color:var(--color-muted);display:block;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.06em;">Operation Type</label>
+          <select id="operation-type" name="operation_type" class="form-input" style="appearance:none;cursor:pointer;">
+            <option value="" disabled selected>Select your operation type…</option>
+            <option>Vertical Farm / Indoor</option>
+            <option>Commercial Greenhouse</option>
+            <option>Hydroponic / Aeroponic</option>
+            <option>Large-Scale Agribusiness</option>
+            <option>Cannabis / Hemp Cultivation</option>
+            <option>Research / University</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="mb-6">
+          <label for="message" style="font-size:0.8125rem;font-weight:600;color:var(--color-muted);display:block;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.06em;">Tell us about your operation (optional)</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="3"
+            placeholder="Operation size, key challenges, sensors you're using…"
+            class="form-input"
+            style="resize:vertical;"
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" id="cta-submit" class="btn-primary" style="width:100%;justify-content:center;padding:1rem;">
+          Request a Free Demo
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <p style="font-size:0.75rem;color:var(--color-muted);text-align:center;margin-top:1rem;line-height:1.5;">
+          No spam. No sales pressure. We typically respond within 1 business day.
+          By submitting, you agree to our <a href="#" style="color:var(--color-leaf);text-decoration:none;">Privacy Policy</a>.
+        </p>
+      </form>
+    </div>
+
+    <!-- Alternate CTA: GitHub -->
+    <div style="text-align:center;margin-top:2.5rem;">
+      <p style="font-size:0.9375rem;color:var(--color-muted);margin-bottom:1rem;">
+        Prefer to explore on your own?
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://github.com/demetra-iot" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="cta-github">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          Explore Open Source
+        </a>
+        <a href="https://docs.demetra.io" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="cta-docs">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Read the Docs
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+---
+// HardwareSection.astro — SmartHub open-source callout
+const specs = [
+  { label: 'Architecture',    value: 'ARM Cortex-A / Linux' },
+  { label: 'OS',              value: 'Open-source Linux (platform-agnostic)' },
+  { label: 'Connectivity',    value: 'LoRa, Wi-Fi, Ethernet, LTE (optional)' },
+  { label: 'Protocols',       value: 'MQTT, Modbus, BACnet, 1-Wire, I²C, SPI' },
+  { label: 'Local Storage',   value: 'eMMC + SD card slot (up to 256 GB)' },
+  { label: 'Actuator I/O',    value: 'Relay outputs, 4-20mA, 0-10V, PWM' },
+  { label: 'Enclosure',       value: 'IP66-rated, DIN-rail or wall mount' },
+  { label: 'Power',           value: 'PoE+ / 12–24V DC, <8W idle' },
+];
+---
+
+<section id="hardware" class="section-pad">
+  <div class="max-w-content container-pad mx-auto">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+      <!-- Left: Copy -->
+      <div>
+        <div class="section-label">
+          <span class="badge">Hardware</span>
+        </div>
+        <h2 style="font-size:clamp(2rem,4vw,2.75rem);font-weight:800;line-height:1.15;letter-spacing:-0.025em;margin-bottom:1.25rem;">
+          The SmartHub:<br />
+          <span class="gradient-text">Open by Design</span>
+        </h2>
+        <p style="font-size:1.0625rem;color:var(--color-muted);line-height:1.75;margin-bottom:2rem;">
+          The Demetra SmartHub is a plug-and-play industrial gateway engineered for the harshest growing environments. It runs on a fully open-source, platform-agnostic Linux stack — so you own your infrastructure, not a subscription to someone else's cloud.
+        </p>
+
+        <!-- Open source callout -->
+        <div class="gradient-border" style="padding:1.75rem;margin-bottom:2rem;">
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(62,207,142,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-leaf)" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">Community-Driven Firmware</h4>
+              <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;margin-bottom:1rem;">
+                The hub runs community-maintained drivers for 100+ commercial sensors. If your sensor isn't supported yet, submit a PR — typically merged within 48 hours.
+              </p>
+              <a
+                href="https://github.com/demetra-iot"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary"
+                id="github-cta"
+                style="padding:0.625rem 1.25rem;font-size:0.875rem;"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plug-and-play callout -->
+        <div class="glass" style="padding:1.5rem;display:flex;align-items:center;gap:1rem;">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(62,207,142,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-leaf)" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12H2l10-10 10 10h-3"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+          </div>
+          <div>
+            <div style="font-weight:700;font-size:0.9375rem;margin-bottom:0.25rem;">Plug-and-Play from Box to Field</div>
+            <div style="font-size:0.875rem;color:var(--color-muted);">Average deployment time: <span style="color:var(--color-leaf);font-weight:600;">under 2 hours</span>. Auto-discovery, zero coding required.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Spec table -->
+      <div>
+        <div class="glass" style="padding:2rem;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.75rem;">
+            <h3 style="font-size:1.0625rem;font-weight:700;">SmartHub Technical Specs</h3>
+            <span class="badge" style="font-size:0.6875rem;">Gen 2</span>
+          </div>
+          <dl style="display:flex;flex-direction:column;gap:0;">
+            {specs.map((spec, i) => (
+              <div style={`display:flex;align-items:baseline;gap:1rem;padding:0.875rem 0;${i < specs.length - 1 ? 'border-bottom:1px solid var(--color-border);' : ''}`}>
+                <dt style="font-size:0.8125rem;color:var(--color-muted);min-width:140px;flex-shrink:0;">{spec.label}</dt>
+                <dd style="font-size:0.9rem;font-weight:500;">{spec.value}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <div style="margin-top:1.75rem;padding:1.25rem;background:rgba(62,207,142,0.06);border-radius:12px;border:1px solid rgba(62,207,142,0.15);">
+            <div style="display:flex;align-items:center;gap:0.625rem;margin-bottom:0.625rem;">
+              <div class="pulse-dot"></div>
+              <span style="font-size:0.875rem;font-weight:600;color:var(--color-leaf);">No Vendor Lock-In — Ever</span>
+            </div>
+            <p style="font-size:0.8125rem;color:var(--color-muted);line-height:1.65;">
+              The platform-agnostic Open Linux architecture means you can migrate, fork, or self-host with zero licensing risk. We compete on quality, not contracts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

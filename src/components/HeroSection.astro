@@ -1,0 +1,128 @@
+---
+// HeroSection.astro — Full-bleed animated hero
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center overflow-hidden"
+  style="padding-top: 6rem;"
+>
+  <!-- Gradient mesh background -->
+  <div class="absolute inset-0 -z-10">
+    <div class="hero-glow" style="width:600px;height:600px;background:radial-gradient(circle,rgba(20,184,166,0.18) 0%,transparent 70%);top:-10%;left:-10%;"></div>
+    <div class="hero-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(6,214,214,0.10) 0%,transparent 70%);bottom:-5%;right:5%;animation:floatGlow 8s ease-in-out infinite alternate;"></div>
+    <div class="hero-glow" style="width:300px;height:300px;background:radial-gradient(circle,rgba(20,184,166,0.08) 0%,transparent 70%);top:40%;left:50%;animation:floatGlow 12s ease-in-out infinite alternate-reverse;"></div>
+    <!-- Grid overlay -->
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(20,184,166,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(20,184,166,0.03) 1px,transparent 1px);background-size:60px 60px;"></div>
+  </div>
+
+  <div class="max-w-content container-pad mx-auto w-full">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Left: Copy -->
+      <div>
+        <div class="section-label fade-up">
+          <span class="badge">
+            <span class="pulse-dot"></span>
+            Operational AI Platform
+          </span>
+        </div>
+
+        <h1 class="fade-up delay-1" style="font-size:clamp(2.5rem,6vw,4.25rem);font-weight:900;line-height:1.08;letter-spacing:-0.03em;margin-bottom:1.5rem;">
+          Stop&nbsp;Monitoring.<br />
+          <span class="gradient-text">Start Acting.</span>
+        </h1>
+
+        <p class="fade-up delay-2" style="font-size:1.125rem;color:var(--color-muted);max-width:480px;line-height:1.75;margin-bottom:2.5rem;">
+          Demetra IoT is the first <strong style="color:var(--color-text);">AI that executes</strong> — not just analyzes. Our edge-first platform turns sensor data into real-time hardware actions, delivering measurable ROI from day one.
+        </p>
+
+        <div class="fade-up delay-3 flex flex-wrap gap-4" style="margin-bottom:3rem;">
+          <a href="#cta" class="btn-primary" id="hero-cta-primary">
+            Get a Free Demo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#solution" class="btn-secondary" id="hero-cta-secondary">
+            See How It Works
+          </a>
+        </div>
+
+        <!-- Trust strip -->
+        <div class="fade-up delay-4 flex flex-wrap items-center gap-6" style="color:var(--color-muted);font-size:0.8125rem;">
+          <div class="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-leaf)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            SOC2 Certified
+          </div>
+          <div class="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-leaf)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            GDPR &amp; HIPAA Compliant
+          </div>
+          <div class="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-leaf)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+            Open Source Core
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Stats dashboard card -->
+      <div class="fade-up delay-2 hidden lg:block">
+        <div class="glass hover-lift" style="padding:2rem;position:relative;">
+          <!-- Live indicator -->
+          <div class="flex items-center justify-between mb-6">
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--color-muted);">LIVE OPERATION DASHBOARD</span>
+            <div class="flex items-center gap-2" style="font-size:0.75rem;color:var(--color-glow);">
+              <span class="pulse-dot"></span> Live
+            </div>
+          </div>
+
+          <!-- Mini stat grid -->
+          <div class="grid grid-cols-3 gap-4 mb-6">
+            {[
+              { value: '−30%', label: 'Energy Cost',   color: 'var(--color-glow)' },
+              { value: '−40%', label: 'Water Usage',   color: 'var(--color-leaf)' },
+              { value: '+25%', label: 'Yield Uplift',  color: 'var(--color-glow)' },
+            ].map(stat => (
+              <div class="text-center" style={`background:rgba(255,255,255,0.03);border-radius:12px;padding:1rem;border:1px solid rgba(62,207,142,0.1);`}>
+                <div class="stat-number" style={`font-size:1.75rem;color:${stat.color};-webkit-text-fill-color:${stat.color};background:none;`}>{stat.value}</div>
+                <div style="font-size:0.6875rem;color:var(--color-muted);margin-top:0.25rem;text-transform:uppercase;letter-spacing:0.08em;">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Fake sparkline chart -->
+          <div style="background:rgba(255,255,255,0.02);border-radius:12px;padding:1.25rem;border:1px solid rgba(62,207,142,0.08);">
+            <div style="font-size:0.6875rem;color:var(--color-muted);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.08em;">Greenhouse Zone A — Energy (kWh)</div>
+            <svg viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:60px;">
+              <defs>
+                <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(62,207,142,0.3)"/>
+                  <stop offset="100%" stop-color="rgba(62,207,142,0)"/>
+                </linearGradient>
+              </defs>
+              <path d="M0 45 L20 42 L40 38 L60 40 L80 35 L100 30 L120 28 L140 25 L160 20 L180 18 L200 15 L220 12 L240 10 L260 8 L280 6 L280 60 L0 60 Z" fill="url(#sparkGrad)"/>
+              <path d="M0 45 L20 42 L40 38 L60 40 L80 35 L100 30 L120 28 L140 25 L160 20 L180 18 L200 15 L220 12 L240 10 L260 8 L280 6" stroke="var(--color-leaf)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <!-- Action log -->
+          <div style="margin-top:1.25rem;font-family:var(--font-mono);font-size:0.6875rem;color:var(--color-muted);">
+            <div style="color:var(--color-glow);margin-bottom:0.5rem;">▶ ACTIONS EXECUTED</div>
+            <div style="line-height:1.8;">
+              <span style="color:var(--color-leaf);">→</span> HVAC zone 3 throttled −18% · 14s ago<br/>
+              <span style="color:var(--color-leaf);">→</span> Irrigation cycle postponed · 2m ago<br/>
+              <span style="color:var(--color-leaf);">→</span> LED spectrum shifted to 660nm · 5m ago
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes floatGlow {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(30px, -40px) scale(1.1); }
+  }
+</style>

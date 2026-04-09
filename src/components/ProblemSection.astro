@@ -1,0 +1,68 @@
+---
+// ProblemSection.astro
+const problems = [
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+    stat: '+340%',
+    title: 'Energy Cost Explosion',
+    body: 'Commercial energy prices have risen over 340% since 2020. Indoor farming operations burning lights, HVAC, and pumps 24/7 absorb these costs with zero visibility into wasteful peaks.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22a8 8 0 0 1-8-8c0-4.07 3.06-7.42 7-7.93V4M12 22a8 8 0 0 0 8-8c0-4.07-3.06-7.42-7-7.93V4M12 4V2"/></svg>`,
+    stat: '40%',
+    title: 'Water Waste at Scale',
+    body: 'Conventional irrigation over-waters by 40% or more — driven by fixed schedules that ignore real-time soil moisture, evapotranspiration, and canopy conditions. Regulators are closing the tap.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 12h5M17 12h5M12 2v5M12 17v5M4.93 4.93l3.54 3.54M15.54 15.54l3.54 3.54M4.93 19.07l3.54-3.54M15.54 8.46l3.54-3.54"/></svg>`,
+    stat: '73%',
+    title: 'Data Blindness',
+    body: '73% of growers rely on weekly manual logs and spreadsheets. When alerts finally fire, the damage is done — a lost crop, a HVAC failure, a disease event. Reactive management is a tax on your margin.',
+  },
+];
+---
+
+<section id="problem" class="section-pad" style="background:linear-gradient(180deg,var(--color-midnight) 0%,rgba(17,24,39,0.6) 100%);">
+  <div class="max-w-content container-pad mx-auto">
+    <!-- Label + Heading -->
+    <div style="max-width:640px;margin-bottom:4rem;">
+      <div class="section-label">
+        <span class="badge">The Problem</span>
+      </div>
+      <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.025em;margin-bottom:1rem;">
+        The Invisible Drain<br /><span class="gradient-text">on Your Operation</span>
+      </h2>
+      <p style="font-size:1.0625rem;color:var(--color-muted);line-height:1.75;">
+        Every day, commercial growers make decisions based on stale data, manual gut-checks, and point-in-time sensor readings. Meanwhile, costs spiral and margins compress.
+      </p>
+    </div>
+
+    <!-- Problem Cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {problems.map((p, i) => (
+        <div class={`gradient-border hover-lift p-8 delay-${i + 1}`} style="animation:fadeUp 0.7s ease both;">
+          <!-- Icon -->
+          <div style={`display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:14px;background:rgba(62,207,142,0.1);color:var(--color-leaf);margin-bottom:1.5rem;`} set:html={p.icon}></div>
+
+          <!-- Stat -->
+          <div class="stat-number" style="font-size:2.5rem;margin-bottom:0.5rem;">{p.stat}</div>
+
+          <!-- Title -->
+          <h3 style="font-size:1.125rem;font-weight:700;margin-bottom:0.75rem;">{p.title}</h3>
+
+          <!-- Body -->
+          <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.7;">{p.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom callout -->
+    <div class="glass" style="margin-top:3rem;padding:2rem;display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem;justify-content:space-between;">
+      <p style="font-size:1.0625rem;font-weight:600;max-width:520px;">
+        You already have sensors. You might even have a dashboard.
+        <span style="color:var(--color-muted);font-weight:400;"> But dashboards don't turn off the pump. AI does.</span>
+      </p>
+      <a href="#solution" class="btn-primary" id="problem-cta">See the Solution →</a>
+    </div>
+  </div>
+</section>

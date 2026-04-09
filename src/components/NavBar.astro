@@ -1,0 +1,132 @@
+---
+// NavBar.astro — Sticky glassmorphism navigation
+const navLinks = [
+  { label: 'Problem',  href: '#problem'  },
+  { label: 'Solution', href: '#solution' },
+  { label: 'Platform', href: '#platform' },
+  { label: 'Hardware', href: '#hardware' },
+  { label: 'ROI',      href: '#roi'      },
+  { label: 'Team',     href: '#team'     },
+];
+---
+
+<header id="nav" class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-content container-pad mx-auto">
+    <nav class="flex items-center justify-between h-16 lg:h-18">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-3 group" aria-label="Demetra IoT Home">
+        <img src="/logo.png" alt="Demetra IoT logo" class="w-9 h-9 object-contain transition-transform duration-300 group-hover:scale-110" />
+        <div>
+          <span class="font-bold text-lg leading-none gradient-text">Demetra</span>
+          <span class="block text-xs text-muted font-mono tracking-widest uppercase" style="letter-spacing:0.18em;">IoT</span>
+        </div>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden md:flex items-center gap-1">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-muted hover:text-leaf transition-colors duration-200"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-3">
+        <a href="#cta" class="btn-primary text-sm py-2.5 px-5">
+          <span>Get a Demo</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <!-- Mobile menu toggle -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden p-2 rounded-lg text-muted hover:text-leaf transition-colors"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <svg id="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg id="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-t"
+    style="border-color: var(--color-border);"
+  >
+    <ul class="container-pad max-w-content mx-auto py-4 flex flex-col gap-1">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-muted hover:text-leaf hover:bg-white/5 transition-all duration-200"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const btn  = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconMenu  = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    iconMenu?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  // Close menu on anchor click
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      iconMenu?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Active nav link highlighting on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('text-leaf');
+          link.classList.add('text-muted');
+          if (link.getAttribute('href') === `#${entry.target.id}`) {
+            link.classList.remove('text-muted');
+            link.classList.add('text-leaf');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(section => observer.observe(section));
+</script>

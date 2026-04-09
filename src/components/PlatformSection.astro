@@ -1,0 +1,123 @@
+---
+// PlatformSection.astro — 6 feature cards showcasing real Hub UI
+const features = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="1"/></svg>`,
+    title: 'Edge-First Processing',
+    body: 'Every SmartHub runs inference locally. Real-time decisions execute in under 50ms — even with no internet. Your operation never waits for the cloud.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: 'Offline-Resilient',
+    body: 'Loss of connectivity doesn\'t stop operations. The hub continues executing automation rules and queues telemetry for seamless sync on reconnect.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+    title: 'Open Source Linux Core',
+    body: 'Built on an open, platform-agnostic Linux architecture. No proprietary lock-in — inspect, extend, and contribute to the firmware freely on GitHub.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M20 15h2"/></svg>`,
+    title: '100+ Sensor Protocols',
+    body: 'Modbus, LoRa, MQTT, BACnet, 1-Wire, and more. Connect any commercial-grade sensor without custom integration work. Plug it in, and it appears on the dashboard.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>`,
+    title: 'Live Multi-Zone Dashboard',
+    body: 'Visualize every greenhouse zone, sensor node, and actuator in real time. Filter by zone, unit, alert status — all from the Hub Client or mobile.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: 'Community-Driven',
+    body: 'Sensor drivers, automation recipes, and integrations are contributed by a growing open-source community of growers and engineers worldwide.',
+  },
+];
+---
+
+<section id="platform" class="section-pad" style="background:linear-gradient(180deg,var(--color-slate) 0%,var(--color-midnight) 100%);">
+  <div class="max-w-content container-pad mx-auto">
+    <div class="text-center" style="max-width:640px;margin-inline:auto;margin-bottom:4rem;">
+      <div class="section-label" style="justify-content:center;">
+        <span class="badge">The Platform</span>
+      </div>
+      <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.025em;margin-bottom:1rem;">
+        One Platform.<br />
+        <span class="gradient-text">Every Sensor. Total Control.</span>
+      </h2>
+      <p style="font-size:1.0625rem;color:var(--color-muted);line-height:1.75;">
+        Demetra is built for operations that can't afford downtime, latency, or vendor lock-in. Here's what powers the platform.
+      </p>
+    </div>
+
+    <!-- Feature grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+      {features.map((f, i) => (
+        <div class={`glass hover-lift p-7 delay-${(i % 4) + 1}`} style="animation:fadeUp 0.7s ease both;">
+          <div style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:rgba(62,207,142,0.1);color:var(--color-leaf);margin-bottom:1.25rem;" set:html={f.icon}></div>
+          <h3 style="font-size:1.0625rem;font-weight:700;margin-bottom:0.625rem;">{f.title}</h3>
+          <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">{f.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Real UI Screenshot showcase -->
+    <div style="margin-bottom:1.5rem;">
+      <div class="section-label">
+        <span class="badge">Live Product UI</span>
+      </div>
+      <h3 style="font-size:1.375rem;font-weight:700;margin-bottom:0.5rem;">This is what your team sees every day</h3>
+      <p style="color:var(--color-muted);font-size:0.9375rem;">The Local Hub Client runs in any browser on your local network. No cloud required.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <!-- Screenshot 1: Dashboard -->
+      <div class="glass hover-lift" style="padding:1.25rem;overflow:hidden;">
+        <div style="background:rgba(255,255,255,0.03);border-radius:10px;overflow:hidden;margin-bottom:1rem;">
+          <img
+            src="/screenshots/hub-dashboard.png"
+            alt="Demetra Hub Client — live sensor dashboard showing greenhouse nodes with temperature, humidity and CO2 charts"
+            style="width:100%;height:auto;display:block;border-radius:8px;"
+            loading="lazy"
+          />
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div class="pulse-dot"></div>
+          <span style="font-size:0.875rem;font-weight:600;">Live Sensor Dashboard</span>
+          <span style="margin-left:auto;font-size:0.75rem;color:var(--color-muted);">Multi-zone, real-time</span>
+        </div>
+      </div>
+
+      <!-- Screenshot 2: Stats -->
+      <div class="glass hover-lift" style="padding:1.25rem;overflow:hidden;">
+        <div style="background:rgba(255,255,255,0.03);border-radius:10px;overflow:hidden;margin-bottom:1rem;">
+          <img
+            src="/screenshots/hub-stats.png"
+            alt="Demetra Hub Client — device statistics showing 253 active sensors across 19 nodes with charts"
+            style="width:100%;height:auto;display:block;border-radius:8px;"
+            loading="lazy"
+          />
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span style="font-size:0.875rem;font-weight:600;">Device Statistics</span>
+          <span style="margin-left:auto;font-size:0.75rem;color:var(--color-muted);">253 sensors, 19 nodes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screenshot 3: Hub home (full width) -->
+    <div class="glass hover-lift" style="padding:1.25rem;margin-top:1.25rem;">
+      <div style="background:rgba(255,255,255,0.03);border-radius:10px;overflow:hidden;margin-bottom:1rem;">
+        <img
+          src="/screenshots/hub-home.png"
+          alt="Demetra Local Hub Client home — navigation menu with Statistics, Hub State, Configurations, Sensor Nodes, Program New Node"
+          style="width:100%;height:auto;display:block;border-radius:8px;"
+          loading="lazy"
+        />
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-size:0.875rem;font-weight:600;">Local Hub Client — Home</span>
+        <span style="margin-left:auto;font-size:0.75rem;color:var(--color-muted);">Runs fully offline in your browser</span>
+      </div>
+    </div>
+  </div>
+</section>

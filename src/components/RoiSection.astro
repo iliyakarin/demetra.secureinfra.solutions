@@ -1,0 +1,146 @@
+---
+// RoiSection.astro — animated ROI counters with Intersection Observer
+---
+
+<section id="roi" class="section-pad" style="background:linear-gradient(135deg,rgba(10,15,30,0.9) 0%,rgba(17,24,39,0.9) 100%);position:relative;overflow:hidden;">
+  <!-- Background glow -->
+  <div style="position:absolute;inset:0;pointer-events:none;">
+    <div style="position:absolute;width:800px;height:400px;background:radial-gradient(ellipse,rgba(20,184,166,0.07) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+  </div>
+
+  <div class="max-w-content container-pad mx-auto" style="position:relative;">
+    <div class="text-center" style="max-width:640px;margin-inline:auto;margin-bottom:5rem;">
+      <div class="section-label" style="justify-content:center;">
+        <span class="badge">ROI &amp; Impact</span>
+      </div>
+      <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.025em;margin-bottom:1rem;">
+        The ROI is<br />
+        <span class="gradient-text">Built In</span>
+      </h2>
+      <p style="font-size:1.0625rem;color:var(--color-muted);line-height:1.75;">
+        These aren't projections. These are measured outcomes from live deployments across vertical farms, commercial greenhouses, and large-scale hydroponic operations.
+      </p>
+    </div>
+
+    <!-- Main stat counters -->
+    <div class="grid md:grid-cols-3 gap-6 mb-8" id="roi-stats">
+      {[
+        {
+          id: 'stat-energy',
+          prefix: '−',
+          value: 30,
+          suffix: '%',
+          label: 'Energy Cost Reduction',
+          sub: 'Average savings on HVAC, lighting, and climate control systems within 60 days of deployment.',
+          color: 'var(--color-glow)',
+        },
+        {
+          id: 'stat-water',
+          prefix: '−',
+          value: 40,
+          suffix: '%',
+          label: 'Water Consumption Cut',
+          sub: 'Real-time soil moisture and evapotranspiration data eliminates over-irrigation.',
+          color: 'var(--color-leaf)',
+        },
+        {
+          id: 'stat-yield',
+          prefix: '+',
+          value: 25,
+          suffix: '%',
+          label: 'Yield Uplift',
+          sub: 'AI-optimized light spectra, nutrient dosing, and harvest scheduling.',
+          color: 'var(--color-glow)',
+        },
+      ].map(stat => (
+        <div class="gradient-border hover-lift" style="padding:2.5rem;text-align:center;">
+          <div
+            id={stat.id}
+            class="counter-value"
+            data-target={stat.value}
+            data-prefix={stat.prefix}
+            data-suffix={stat.suffix}
+            style={`font-size:clamp(3rem,7vw,5rem);font-weight:900;line-height:1;color:${stat.color};-webkit-text-fill-color:${stat.color};margin-bottom:1rem;`}
+          >
+            {stat.prefix}0{stat.suffix}
+          </div>
+          <h3 style="font-size:1.125rem;font-weight:700;margin-bottom:0.75rem;">{stat.label}</h3>
+          <p style="font-size:0.875rem;color:var(--color-muted);line-height:1.65;">{stat.sub}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Secondary stats row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      {[
+        { value: '< 2h',  label: 'Average Deployment Time' },
+        { value: '14+',   label: 'Years of IoT Expertise' },
+        { value: '100+',  label: 'Sensor Protocols Supported' },
+        { value: '< 50ms',label: 'Edge AI Response Time' },
+      ].map(s => (
+        <div class="glass text-center" style="padding:1.5rem;">
+          <div class="stat-number" style="font-size:1.875rem;margin-bottom:0.375rem;">{s.value}</div>
+          <div style="font-size:0.75rem;color:var(--color-muted);text-transform:uppercase;letter-spacing:0.07em;">{s.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Payback period callout -->
+    <div class="glass" style="padding:2.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:2rem;justify-content:space-between;">
+      <div>
+        <div style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.375rem;text-transform:uppercase;letter-spacing:0.07em;">Typical Payback Period</div>
+        <div style="font-size:2rem;font-weight:800;" class="gradient-text">6–14 Months</div>
+        <div style="font-size:0.9rem;color:var(--color-muted);margin-top:0.375rem;">For a 5,000 m² hydroponic operation</div>
+      </div>
+      <div class="divider" style="height:60px;width:1px;background:var(--color-border);"></div>
+      <div>
+        <div style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.375rem;text-transform:uppercase;letter-spacing:0.07em;">Energy savings alone</div>
+        <div style="font-size:2rem;font-weight:800;" class="gradient-text">$180K+</div>
+        <div style="font-size:0.9rem;color:var(--color-muted);margin-top:0.375rem;">Per year in a typical commercial greenhouse</div>
+      </div>
+      <div class="divider" style="height:60px;width:1px;background:var(--color-border);"></div>
+      <div style="max-width:280px;">
+        <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.7;">
+          Demetra doesn't just reduce costs. It compounds — every growing cycle teaches the AI, improving margins over time.
+        </p>
+      </div>
+      <a href="#cta" class="btn-primary" id="roi-cta">Calculate My ROI</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animate counters when section scrolls into view
+  function animateCounter(el: HTMLElement) {
+    const target = parseInt(el.dataset.target ?? '0', 10);
+    const prefix = el.dataset.prefix ?? '';
+    const suffix = el.dataset.suffix ?? '';
+    const duration = 1800;
+    const start = performance.now();
+
+    function step(now: number) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out-expo
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const current = Math.round(eased * target);
+      el.textContent = `${prefix}${current}${suffix}`;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const counters = document.querySelectorAll<HTMLElement>('.counter-value[data-target]');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target as HTMLElement);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  counters.forEach(c => observer.observe(c));
+</script>

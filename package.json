@@ -1,0 +1,28 @@
+{
+  "name": "demetra.secureinfra.solutions",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iliyakarin/demetra.secureinfra.solutions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iliyakarin/demetra.secureinfra.solutions/issues"
+  },
+  "homepage": "https://github.com/iliyakarin/demetra.secureinfra.solutions#readme",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^6.1.5",
+    "tailwindcss": "^4.2.2"
+  }
+}

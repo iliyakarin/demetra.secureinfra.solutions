@@ -1,0 +1,70 @@
+---
+// SecuritySection.astro
+const badges = [
+  {
+    label: 'SOC 2 Type II',
+    desc: 'Audited security controls for availability, confidentiality, and processing integrity.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
+  },
+  {
+    label: 'GDPR Compliant',
+    desc: 'Full data residency controls, consent management, and right-to-erasure workflows.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  },
+  {
+    label: 'HIPAA Ready',
+    desc: 'Administrative, physical, and technical safeguards for sensitive operational data.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>`,
+  },
+  {
+    label: 'PCI DSS',
+    desc: 'Secure payment and subscription data handling for enterprise billing compliance.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>`,
+  },
+  {
+    label: 'End-to-End Encryption',
+    desc: 'TLS 1.3 in transit, AES-256 at rest. All hub-to-cloud telemetry is encrypted by default.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+  },
+  {
+    label: 'Infrastructure Veterans',
+    desc: 'Our security team has backgrounds building zero-trust systems for financial and defense sectors.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  },
+];
+---
+
+<section id="security" class="section-pad" style="background:var(--color-slate);">
+  <div class="max-w-content container-pad mx-auto">
+    <div class="text-center" style="max-width:640px;margin-inline:auto;margin-bottom:4rem;">
+      <div class="section-label" style="justify-content:center;">
+        <span class="badge">Security</span>
+      </div>
+      <h2 style="font-size:clamp(2rem,4.5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.025em;margin-bottom:1rem;">
+        Enterprise Security Without<br />
+        <span class="gradient-text">Enterprise Lock-In</span>
+      </h2>
+      <p style="font-size:1.0625rem;color:var(--color-muted);line-height:1.75;">
+        Built by infrastructure veterans who previously designed security systems for financial services and critical infrastructure. Your data and your operation are protected at every layer.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {badges.map((b, i) => (
+        <div class={`glass hover-lift p-7 delay-${(i % 3) + 1}`} style="animation:fadeUp 0.7s ease both;">
+          <div style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:rgba(62,207,142,0.1);color:var(--color-leaf);margin-bottom:1.25rem;" set:html={b.icon}></div>
+          <h3 style="font-size:1.0625rem;font-weight:700;margin-bottom:0.625rem;">{b.label}</h3>
+          <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">{b.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Security statement -->
+    <div class="gradient-border" style="margin-top:3rem;padding:2.5rem;text-align:center;">
+      <p style="font-size:1.125rem;font-weight:600;max-width:640px;margin-inline:auto;line-height:1.7;">
+        "We don't treat security as a feature checkbox — it's the foundation. Every design decision starts with a threat model."
+      </p>
+      <p style="font-size:0.875rem;color:var(--color-muted);margin-top:0.75rem;">— Demetra Infrastructure &amp; Security Team</p>
+    </div>
+  </div>
+</section>
