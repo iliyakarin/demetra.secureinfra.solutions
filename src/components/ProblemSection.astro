@@ -22,7 +22,7 @@ const problems = [
 ];
 ---
 
-<section id="problem" class="section-pad" style="background:linear-gradient(180deg,var(--color-midnight) 0%,rgba(17,24,39,0.6) 100%);">
+<section id="problem" class="section-pad" style="background:linear-gradient(180deg,var(--color-midnight) 0%,var(--color-slate) 100%);">
   <div class="max-w-content container-pad mx-auto">
     <!-- Label + Heading -->
     <div style="max-width:640px;margin-bottom:4rem;">
@@ -42,7 +42,7 @@ const problems = [
       {problems.map((p, i) => (
         <div class={`gradient-border hover-lift p-8 delay-${i + 1}`} style="animation:fadeUp 0.7s ease both;">
           <!-- Icon -->
-          <div style={`display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:14px;background:rgba(62,207,142,0.1);color:var(--color-leaf);margin-bottom:1.5rem;`} set:html={p.icon}></div>
+          <div style={`display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:14px;background:rgba(127,163,129,0.1);color:var(--color-leaf);margin-bottom:1.5rem;`} set:html={p.icon}></div>
 
           <!-- Stat -->
           <div class="stat-number" style="font-size:2.5rem;margin-bottom:0.5rem;">{p.stat}</div>

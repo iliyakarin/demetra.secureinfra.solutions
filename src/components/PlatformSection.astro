@@ -53,7 +53,7 @@ const features = [
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
       {features.map((f, i) => (
         <div class={`glass hover-lift p-7 delay-${(i % 4) + 1}`} style="animation:fadeUp 0.7s ease both;">
-          <div style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:rgba(62,207,142,0.1);color:var(--color-leaf);margin-bottom:1.25rem;" set:html={f.icon}></div>
+          <div style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:rgba(127,163,129,0.1);color:var(--color-leaf);margin-bottom:1.25rem;" set:html={f.icon}></div>
           <h3 style="font-size:1.0625rem;font-weight:700;margin-bottom:0.625rem;">{f.title}</h3>
           <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">{f.body}</p>
         </div>
@@ -72,7 +72,7 @@ const features = [
     <div class="grid md:grid-cols-2 gap-5">
       <!-- Screenshot 1: Dashboard -->
       <div class="glass hover-lift" style="padding:1.25rem;overflow:hidden;">
-        <div style="background:rgba(255,255,255,0.03);border-radius:10px;overflow:hidden;margin-bottom:1rem;">
+        <div style="background:rgba(0,0,0,0.02);border-radius:10px;overflow:hidden;margin-bottom:1rem;">
           <img
             src="/screenshots/hub-dashboard.png"
             alt="Demetra Hub Client — live sensor dashboard showing greenhouse nodes with temperature, humidity and CO2 charts"
@@ -89,7 +89,7 @@ const features = [
 
       <!-- Screenshot 2: Stats -->
       <div class="glass hover-lift" style="padding:1.25rem;overflow:hidden;">
-        <div style="background:rgba(255,255,255,0.03);border-radius:10px;overflow:hidden;margin-bottom:1rem;">
+        <div style="background:rgba(0,0,0,0.02);border-radius:10px;overflow:hidden;margin-bottom:1rem;">
           <img
             src="/screenshots/hub-stats.png"
             alt="Demetra Hub Client — device statistics showing 253 active sensors across 19 nodes with charts"
@@ -106,7 +106,7 @@ const features = [
 
     <!-- Screenshot 3: Hub home (full width) -->
     <div class="glass hover-lift" style="padding:1.25rem;margin-top:1.25rem;">
-      <div style="background:rgba(255,255,255,0.03);border-radius:10px;overflow:hidden;margin-bottom:1rem;">
+      <div style="background:rgba(0,0,0,0.02);border-radius:10px;overflow:hidden;margin-bottom:1rem;">
         <img
           src="/screenshots/hub-home.png"
           alt="Demetra Local Hub Client home — navigation menu with Statistics, Hub State, Configurations, Sensor Nodes, Program New Node"

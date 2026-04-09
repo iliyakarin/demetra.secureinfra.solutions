@@ -52,7 +52,7 @@ const badges = [
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
       {badges.map((b, i) => (
         <div class={`glass hover-lift p-7 delay-${(i % 3) + 1}`} style="animation:fadeUp 0.7s ease both;">
-          <div style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:rgba(62,207,142,0.1);color:var(--color-leaf);margin-bottom:1.25rem;" set:html={b.icon}></div>
+          <div style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:rgba(127,163,129,0.1);color:var(--color-leaf);margin-bottom:1.25rem;" set:html={b.icon}></div>
           <h3 style="font-size:1.0625rem;font-weight:700;margin-bottom:0.625rem;">{b.label}</h3>
           <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">{b.desc}</p>
         </div>

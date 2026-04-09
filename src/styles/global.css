@@ -2,17 +2,18 @@
 
 /* ─── Design Tokens ──────────────────────────────────────────────── */
 @theme {
-  /* ── Hub-matched palette ── */
-  --color-midnight:   #0d1117;          /* deeper blue-black, Hub sidebar darkness */
-  --color-slate:      #111827;          /* section alternates */
-  --color-card:       #161d2e;          /* card background */
-  --color-border:     rgba(20, 184, 166, 0.18);  /* teal border, matching Hub accent */
-  --color-leaf:       #14b8a6;          /* Hub primary teal (Tailwind teal-500) */
-  --color-glow:       #06d6d6;          /* cyan highlight, Hub active glow */
-  --color-muted:      #8892a4;          /* muted text */
-  --color-text:       #e2e8f0;          /* primary text */
-  --color-blue:       #3b82f6;          /* Hub secondary — link blue */
-  --color-purple:     #8b5cf6;          /* Hub tertiary — purple icon */
+  /* ── Agri-Tech Light palette ── */
+  --color-midnight:   #F8FAFC;          /* Pearl White — page background */
+  --color-slate:      #EEF2F5;          /* Cool off-white — section alternates */
+  --color-card:       #FFFFFF;          /* Pure white — card background */
+  --color-border:     rgba(127, 163, 129, 0.25);  /* Moss-tinted subtle border */
+  --color-leaf:       #7FA381;          /* Moss Green — primary accent */
+  --color-glow:       #5A8F5E;          /* Deep Sage — secondary accent / glow */
+  --color-muted:      #64748B;          /* Slate-500 — muted text (WCAG AA) */
+  --color-text:       #334155;          /* Slate Gray — primary body text */
+  --color-blue:       #3b82f6;          /* Link blue (unchanged) */
+  --color-purple:     #8b5cf6;          /* Purple icon (unchanged) */
+  --color-sky:        #E0F2FE;          /* AI / Tech highlight background */
 
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -39,12 +40,12 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--color-leaf); border-radius: 3px; }
 
 /* ─── Selection ──────────────────────────────────────────────────── */
-::selection { background: var(--color-glow); color: var(--color-midnight); }
+::selection { background: #D1E2D3; color: var(--color-text); }
 
 /* ─── Utility: Glow Text ─────────────────────────────────────────── */
 .text-glow {
   color: var(--color-glow);
-  text-shadow: 0 0 24px rgba(6, 214, 214, 0.5), 0 0 48px rgba(6, 214, 214, 0.2);
+  text-shadow: 0 0 16px rgba(90, 143, 94, 0.25);
 }
 
 .text-leaf { color: var(--color-leaf); }
@@ -52,18 +53,20 @@ body {
 
 /* ─── Utility: Glass Card ────────────────────────────────────────── */
 .glass {
-  background: rgba(20, 28, 46, 0.7);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border);
   border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .glass-nav {
-  background: rgba(10, 15, 30, 0.85);
+  background: rgba(248, 250, 252, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 /* ─── Utility: Gradient Text ─────────────────────────────────────── */
@@ -79,6 +82,7 @@ body {
   position: relative;
   background: var(--color-card);
   border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 .gradient-border::before {
   content: '';
@@ -102,7 +106,7 @@ body {
   height: 200%;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.02;
   animation: grain 8s steps(10) infinite;
   z-index: 9999;
 }
@@ -144,7 +148,7 @@ body {
 }
 .hover-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(20, 184, 166, 0.12);
+  box-shadow: 0 20px 60px rgba(127, 163, 129, 0.15);
 }
 
 /* ─── CTA Button ─────────────────────────────────────────────────── */
@@ -157,16 +161,16 @@ body {
   font-weight: 600;
   font-size: 0.9375rem;
   background: linear-gradient(135deg, var(--color-leaf), var(--color-glow));
-  color: var(--color-midnight);
+  color: #FFFFFF;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(20, 184, 166, 0.35);
+  box-shadow: 0 4px 16px rgba(127, 163, 129, 0.3);
   text-decoration: none;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 40px rgba(20, 184, 166, 0.55);
+  box-shadow: 0 8px 32px rgba(127, 163, 129, 0.45);
 }
 
 .btn-secondary {
@@ -185,7 +189,7 @@ body {
   text-decoration: none;
 }
 .btn-secondary:hover {
-  background: rgba(20, 184, 166, 0.1);
+  background: rgba(127, 163, 129, 0.1);
   transform: translateY(-2px);
 }
 
@@ -200,9 +204,9 @@ body {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: rgba(20, 184, 166, 0.12);
+  background: rgba(127, 163, 129, 0.12);
   color: var(--color-leaf);
-  border: 1px solid rgba(20, 184, 166, 0.35);
+  border: 1px solid rgba(127, 163, 129, 0.35);
 }
 
 /* ─── Section Label ──────────────────────────────────────────────── */
@@ -235,7 +239,7 @@ body {
 .form-input {
   width: 100%;
   padding: 0.875rem 1.25rem;
-  background: rgba(255,255,255,0.05);
+  background: rgba(0, 0, 0, 0.03);
   border: 1px solid var(--color-border);
   border-radius: 10px;
   color: var(--color-text);
@@ -246,7 +250,7 @@ body {
 }
 .form-input:focus {
   border-color: var(--color-leaf);
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+  box-shadow: 0 0 0 3px rgba(127, 163, 129, 0.2);
 }
 .form-input::placeholder { color: var(--color-muted); }
 
@@ -276,6 +280,6 @@ body {
 .pulse-dot {
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: var(--color-glow);
+  background: var(--color-leaf);
   animation: pulse-dot 2s ease-in-out infinite;
 }
